@@ -34,34 +34,33 @@ const Details = ({ item, route }) => {
   };
   return (
     <View style={styles.container}>
-      <View style={styles.details}>
-        <ScrollView>
-          <PlanetHeader backButton={true} />
-          <View>
-            <Image
-              style={styles.imageView}
-              source={require("../../assets/car.jpg")}
-            />
-          </View>
-          <View style={styles.detailsView}>
-            <Text style={styles.title}>{name}</Text>
-            <Text preset="h2">{planet.structure}</Text>
-          </View>
-          <Pressable style={styles.source} onPress={onPressLink}>
-            <Text>Source : </Text>
-            <Text preset="h4" style={styles.wikipedia}>
-              Wikipedia
-            </Text>
-          </Pressable>
+      <ScrollView style={styles.details}>
+        <PlanetHeader backButton={true} />
+        <View>
+          <Image
+            style={styles.imageView}
+            source={require("../../assets/car.jpg")}
+          />
+        </View>
 
-          <View style={{ marginTop: 60 }}>
-            <PlanetSection title="rotationTime" value={rotationTime} />
-            <PlanetSection title="revolutionTime" value={revolutionTime} />
-            <PlanetSection title="radius" value={radius} />
-            <PlanetSection title="avgTemp" value={avgTemp} />
-          </View>
-        </ScrollView>
-      </View>
+        <View style={styles.detailsView}>
+          <Text style={styles.title}>{name}</Text>
+          <Text preset="h2">{planet.structure}</Text>
+        </View>
+        <Pressable style={styles.source} onPress={onPressLink}>
+          <Text>Source : </Text>
+          <Text preset="h4" style={styles.wikipedia}>
+            Wikipedia
+          </Text>
+        </Pressable>
+
+        <View style={{ marginTop: 60 }}>
+          <PlanetSection title="rotation Time" value={rotationTime} />
+          <PlanetSection title="revolution Time" value={revolutionTime} />
+          <PlanetSection title="radius" value={radius} />
+          <PlanetSection title="avg Temp" value={avgTemp} />
+        </View>
+      </ScrollView>
     </View>
   );
 };
