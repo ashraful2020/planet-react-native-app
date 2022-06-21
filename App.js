@@ -1,22 +1,30 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react'
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useFonts } from "expo-font"; 
+import Text from "./src/components/Text/Text";
+import Home from "./src/screens/Home";
 import { color } from "./src/theme/color";
-
+import { StatusBar } from 'expo-status-bar';
+import Details from './src/screens/Details';
+const Stack = createNativeStackNavigator();
 export default function App() {
- 
+  const [loaded] = useFonts({
+    "gloria": require("./assets/fonts/GloriaHallelujah-Regular.ttf"),
+    "league": require("./assets/fonts/LeagueGothic-Regular-VariableFont_wdth.ttf"),
+    "sansBold": require("./assets/fonts/SourceSansPro-Bold.ttf"),
+  });
+  if (!loaded) {
+    return <Text> Loading....</Text>;
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Ashraful" component={Home} />
+        <Stack.Screen name="Details" component={Details} />
+      </Stack.Navigator>
+      <StatusBar style="light" />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: color.lightSky,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
