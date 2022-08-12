@@ -1,5 +1,5 @@
 import { EvilIcons } from "@expo/vector-icons";
-import { useState } from "react";
+import React, { useState } from "react";
 import { FlatList, Pressable, StyleSheet, TextInput, View } from "react-native";
 import PlanetHeader from "../components/PlanetHeader";
 import Text from "../components/Text/Text";
@@ -36,6 +36,7 @@ const Home = ({ navigation }) => {
     });
     setList(matchedData);
   };
+
   return (
     <View style={styles.container}>
       <PlanetHeader />
@@ -46,6 +47,7 @@ const Home = ({ navigation }) => {
         autoCorrect={false}
         onChangeText={(text) => searchPlanet(text)}
       />
+      {/* use Flat list to show list item */}
       <FlatList
         data={list}
         keyExtractor={(item) => item.name}

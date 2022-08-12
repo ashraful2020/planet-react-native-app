@@ -1,8 +1,10 @@
-import { StyleSheet, Text as NEWText } from "react-native";
+import React from "react";
+import { StyleSheet, Text as NewText } from "react-native";
 import { presets } from "./text.preset";
 const Text = ({ children, preset = "default", style }) => {
   const textStyles = StyleSheet.compose(presets[preset], style);
-  return <NEWText style={textStyles}>{children}</NEWText>;
+
+  return <NewText style={textStyles}>{children}</NewText>;
 };
 
 export default Text;
